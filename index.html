@@ -230,6 +230,25 @@
       text-shadow: 0 0 10px rgba(173, 255, 47, 0.5);
     }
   </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '855950380340113');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=855950380340113&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
 </head>
 <body>
   <div class="logo-container">
@@ -248,7 +267,12 @@
   </div>
 
   <div class="join-button-container">
-    <a href="https://telegram.me/+RWO58CtDmE03NDhl" class="join-button" id="joinChannelBtn">📈 JOIN TELEGRAM CHANNEL</a>
+    <a href="https://telegram.me/+RWO58CtDmE03NDhl" 
+       class="join-button" 
+       id="joinChannelBtn"
+       onclick="fbq('track', 'JoinTelegramClick');">
+       📈 JOIN TELEGRAM CHANNEL
+    </a>
   </div>
 
   <div class="timer">Redirecting in: <span id="countdown">30</span> seconds</div>
@@ -276,6 +300,7 @@
     if (timeLeft <= 0) {
       clearInterval(timer);
       window.location.href = "https://telegram.me/+RWO58CtDmE03NDhl";
+      fbq('track', 'AutoRedirectJoin'); // Track auto-redirect as event
     }
   }, 1000);
 
